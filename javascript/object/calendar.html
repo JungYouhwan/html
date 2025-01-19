@@ -103,7 +103,6 @@
     }]
     
 
-    console.log(holydays);
     // 달력버튼 클릭하면 월정보를 입력받아서 출력.
     let buttons = document.querySelector('#button1');
     buttons.addEventListener('click', function () {
@@ -114,6 +113,13 @@
     makeCalendar();
     // 달력 출력 함수. year=년도, month=월
     function makeCalendar(year = 2025, month = 1) {
+    // rday에 필터를 사용해서 홀리데이의 값을 가져옴.
+      let holy = holydays.filter(function (item, idx) {
+        if(item.month == month) {
+          return true;
+        }
+        return false;
+      })
       let now = new Date(); // 2025, 1, 17
       // 년도, 월 지정.
       now.setFullYear(year);
@@ -127,6 +133,10 @@
       // let lastDate = getLastDate(month); // 월의 말일.
 
       let days = ['일', '월', '화', '수', '목', '금', '토'];
+      let moly = [];
+      holy.forEach(function (item) {
+        moly = item.days;
+      })
       let html = '';
 
       // 월의 정보를 알려주면 공백 반환.
@@ -201,14 +211,20 @@
       for (let i = 1; i <= spaces; i++) {
         html += '<td></td>'
       }
-
-      //날짜 출력.
       for (let i = 1; i <= lastDate; i++) {
-        if ((i + spaces) % 7 == 0) {
-          html += `<td style="background-color:blue; color:white;">${i}</td>`;
-        } else if ((i + spaces) % 7 == 1) {
+        let e = 0;
+        e = moly[i]
+        console.log(e);
+        if (e == i) {
+          // 휴일
           html += `<td style="background-color:red; color:white;">${i}</td>`;
-        } else {
+          // 토요일
+        } else if ((i + spaces) % 7 == 0) {
+          html += `<td style="background-color:blue; color:white;">${i}</td>`;
+          // 일요일
+        } else if((i + spaces) % 7 == 1) {
+          html += `<td style="background-color:red; color:white;">${i}</td>`;
+        }  else {
           html += `<td>${i}</td>`;
         }
         if ((i + spaces) % 7 == 0) {
