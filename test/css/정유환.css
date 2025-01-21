@@ -1,0 +1,61 @@
+#container{
+  box-sizing: border-box;
+  font-family: '맑은 고딕';
+  width: 1000px;
+  align-content: center;
+}
+#ue {
+  background-color: black;
+  color: white;
+}
+li:nth-last-child(1){
+  float: right;
+}
+ul, li {
+  float: left;
+  list-style-type: none;
+}
+li:nth-child() {
+  border: 5px solid white;
+  background-color: white; opacity:0.5;
+}
+aside {
+  height: 700px;
+  width: 200px;
+  float: left;
+  align-content: center;
+}
+section {
+  height: 700px;
+  width: 600px;
+  padding: 1px;
+  margin: 0 auto;
+}
+
+form{
+  width: 500px;
+  align-content: center;
+  margin: auto;
+  background-color: #ccc;
+  border: 1px ;
+}
+label{
+  width: 130px;
+}
+input {
+  width: 250px;
+  padding: 3px;
+}
+button{
+  width: 150px;
+  border-radius: 5px;
+  border: 0px;
+  background-color: #ddd;
+  padding: 15px;
+}
+footer {
+  clear: both;
+}
+legend{
+  font-weight:100;
+}
