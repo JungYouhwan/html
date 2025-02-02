@@ -112,12 +112,11 @@
         }
         return false;
       })
-      let now = new Date(); // 2025, 1, 17
-      console.log(now); // 오늘날짜
+      let now = new Date(); // 2025, 1, 17 오늘 날짜
       // 년도, 월 지정.
       now.setFullYear(year); 
-      
-      now.setMonth(month - 1);
+      console.dir(now);
+      now.setMonth(month - 1); // 마지막날짜를 구하기 위해서 현재날짜의 -1 이전날이 나옴
       console.log(now);
       now.setDate(1);
       console.log(now);
